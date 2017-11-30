@@ -1,0 +1,288 @@
+/* -------------------------------------------------- FONTS */
+
+@font-face {
+  font-family: headertext;
+  src: url("../fonts/KGBrokenVesselsSketch.ttf") format('truetype'); /*http://www.fontspace.com/kimberly-geswein/kg-broken-vessels-sketch*/
+}
+
+@font-face {
+  font-family: contenttext;
+  src: url("../fonts/DJBThisFontisWorn.ttf") format('truetype'); /*http://www.fontspace.com/darcy-baldwin-fonts/djb-this-font-is-worn*/
+}
+
+/*----------------------------------------------------------*/
+
+body {
+    margin: 0;
+    font-size: 28px;
+    background-color: #FECE1A;
+  }
+  
+/*---------- Links ----------*/
+
+[href]{
+  font-size: 1.2em;
+  font-family: contenttext;
+  color: white;
+  text-decoration: none;
+}
+
+
+/* ------------------------------------------- HEADER*/
+
+  .head {
+    height: 300px;
+    color: white;
+    background-image: url("../img/header.jpg");
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .gridlogo{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 200px;
+  }
+
+  .logo img{
+    grid-column-start: 2;
+    grid-row-end: 2;
+    width: 100%;
+    height: 100%;
+  }
+
+
+
+/*---------------------------------------- NAVIGATION BAR*/
+  #navbar {
+    padding: 0.35em;
+    height: 2em;
+    border: 0.10em solid #181A1C;
+    overflow: hidden;
+    background-image: url("../img/dark-blackboard.png");
+  }
+
+  #navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    padding: 1em;
+    font-size: 0.4em;
+    font-family: contenttext;
+  }
+  
+  #navbar a:hover {
+    color: #FECE1A;
+    box-shadow: 0px 0px 0px 2px #FECE1A;
+  } 
+
+  
+  #navbar a.active {
+    color: #181A1C;
+    box-shadow: 0px 0px 0px 2px #FECE1A;
+    font-weight: bold;
+    background-color: #FECE1A; 
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
+  
+  .sticky + .sections {
+    padding-top: 60px;
+  }
+
+
+
+/* -------------------------------------CONTENT*/
+
+
+#content{
+
+box-shadow: 0 0 1em 1em #292929;
+margin: 1em;
+background-image: url("../img/dark-blackboard.png");
+
+}
+
+#content h3{
+  color:white;
+  font-size: 2em;
+  font-weight:normal; 
+  font-family: headertext;
+}
+
+
+#content article{
+  color:white;
+  padding: 2em;
+  font-size: 0.4em;
+  font-family: contenttext;
+}
+
+
+#main div.sectionHead *{
+  padding: 1em;
+  margin: 0;
+  text-align: center;
+}
+
+#locals div.sectionHead *{
+  padding: 1em;
+  margin: 0;
+  text-align: center;
+  }
+
+
+#about div.sectionHead *{
+  padding: 1em;
+  margin: 0;
+  text-align: center;
+  }
+
+
+.slogan{
+  text-align: center;
+  display:block;
+  padding:0;
+  color:white;
+  font-size: 0.4em;
+  font-family: contenttext;
+}
+
+
+
+/* -------------------------------  SECTIONS*/
+
+/*SECTIONS BOX*/
+
+.sections {
+  padding: 16px;
+} 
+
+
+
+/* ----------------  LOCALS SECTION  ------------------*/
+
+.gridlocals{
+  margin: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+/*Grid locals categories in home locals section */
+
+.gridlocals nav{
+
+  grid-row: 1;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.gridlocals section.cat1{
+  text-align: center;
+  color:white;
+  font-size: 0.5em;
+  font-family: contenttext;
+  grid-row: 2;
+  grid-column: 1;
+}
+section.cat1 div img{
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 90%;
+  height: 90%;
+}
+
+.gridlocals section.cat2{
+  text-align: center;
+  color:white;
+  font-size: 0.5em;
+  font-family: contenttext;
+  grid-row: 2;
+  grid-column: 2;
+}
+section.cat2 div img{
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 90%;
+  height: 90%;
+}
+
+
+.gridlocals section.cat3{
+  text-align: center;
+  color:white;
+  font-size: 0.5em;
+  font-family: contenttext;
+  grid-row: 2;
+  grid-column: 3;
+}
+section.cat3 div img{
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 90%;
+  height: 90%;
+}
+
+
+/* Navbar  to filter categories */
+.navbarlocals {
+  padding: 0.15em;
+  height: 2em;
+  overflow: hidden;
+}
+
+.navbarlocals ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbarlocals a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  padding: 1em;
+  font-size: 0.4em;
+  font-family: contenttext;
+}
+
+.navbarlocals a.active {
+  color: #FECE1A;
+  box-shadow: 0px 0px 0px 2px #FECE1A;
+} 
+
+
+.navbarlocals a:hover {
+  color: #181A1C;
+  box-shadow: 0px 0px 0px 2px #FECE1A;
+  font-weight: bold;
+  background-color: #FECE1A; 
+}
+
+
+
+/* -----------------------------------FOOTER*/
+
+.footer {
+    color: white;
+    font-family: contenttext;    
+    background-image: url("../img/dark-blackboard.png");
+    padding: 0.5em;
+    text-align: center;
+    size: 1em;
+  }

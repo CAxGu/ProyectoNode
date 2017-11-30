@@ -1,0 +1,49 @@
+<script src="js/contact/bootstrap-button.js"></script>
+<link rel="stylesheet" href="style/contact_style.css">
+<section id="sections" class="sections">
+    <!-- information or sections inside the section with grey background -->
+    <section id="content" class="content" >
+        <!-- Content of contact section -->
+    
+    <form id="contact_form" name="contact_form" class="form-contact">
+        <div class="sectionHead">
+                <h3>Contact With Us</h3>
+        </div>
+        <div class="control-group">
+            <input required ng-model="contact.inputName" type="text" id="inputName" name="inputName" placeholder="Nombre" class="input-block-level inputtext" dir="auto" maxlength="100">
+            <span class="text-danger" ng-show="contact_form.inputName.$error.required && (contact_form.inputName.$dirty || contact_form.inputName.$touched)">El campo es obligatorio</span>
+        </div>
+        <div class="control-group">
+            <input required ng-model="contact.inputEmail" type="email" id="inputEmail" name="inputEmail" placeholder="Email *" class="input-block-level inputtext" maxlength="100" ng-pattern="/^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/i">
+            <span class="text-danger" ng-show="contact_form.inputEmail.$error.required && (contact_form.inputEmail.$dirty || contact_form.inputEmail.$touched)">El campo es obligatorio</span>
+            <span class="text-danger" ng-show="contact_form.inputEmail.$error.email"><br>Email no valido</span>
+        </div>
+        <div class="control-group">
+            <label class="combolabel" for="sel1">Tema de Consulta: </label>
+            <select ng-model="contact.inputSubject" class="form-control combobox" id="inputSubject" name="inputSubject" title="Choose subject">
+                <option class="optioncombo" value="">- Por favor, seleccione un tema de consulta -</option>
+                <option class="optioncombo" value="servicio">Info relativa a algun servicio</option>
+                <option class="optioncombo" value="dpto">Contacta con nuestro dpto de programación</option>
+                <option class="optioncombo" value="trabaja">Trabaja con nosotros</option>
+                <option class="optioncombo" value="sugerencias">Haznos sugerencias</option>
+                <option class="optioncombo" value="reclamaciones">Atendemos tus reclamaciones</option>
+                <option class="optioncombo" value="novedades">Te avisamos de nuestras novedades</option>
+                <option class="optioncombo" value="diferente">Otros</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <textarea required ng-model="contact.inputMessage" class="input-block-level inputtextbox" rows="4" id="inputMessage" name="inputMessage" placeholder="Introduzca aqui su mensaje *" style="max-width: 100%;" dir="auto"></textarea>
+            <span class="text-danger" ng-show="contact_form.inputMessage.$error.required && (contact_form.inputMessage.$dirty || contact_form.inputMessage.$touched)">El campo es obligatorio</span>
+        </div>
+
+        <input type="hidden" name="token" value="contact_form" />
+        
+        <input class="btn btn-primary send" type="submit" name="submit" id="submitBtn" value="Enviar" 
+               ng-show="contact_form.inputName.$valid && contact_form.inputEmail.$valid && contact_form.inputMessage.$valid" 
+               ng-click="SubmitContact()"/>
+        
+        <div id="resultMessage" ng-class="class">{{message}}</div>
+    </form> 
+    </section>
+</section>
+
