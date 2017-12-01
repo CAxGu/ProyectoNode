@@ -13,9 +13,9 @@ var merge         = require('merge-stream');
 let cleanCSS = require('gulp-clean-css');
 
 // Where our files are located
-var cssFiles   = "src/style/**/*.css";
-var jsFiles   = "src/js/**/*.js";
-var viewFiles = "src/js/**/*.html";
+// var cssFiles   = "src/style/**/*.css";
+var jsFiles   = "src/client/js/**/*.js";
+var viewFiles = "src/client/js/**/*.html";
 
 var interceptErrors = function(error) {
   var args = Array.prototype.slice.call(arguments);
@@ -32,7 +32,7 @@ var interceptErrors = function(error) {
 
 
 gulp.task('browserify', ['views'], function() {
-  return browserify('./src/js/app.js')
+  return browserify('./src/client/js/app.js')
       .transform(babelify, {presets: ["es2015"]})
       .transform(ngAnnotate)
       .bundle()
@@ -40,7 +40,7 @@ gulp.task('browserify', ['views'], function() {
       //Pass desired output filename to vinyl-source-stream
       .pipe(source('main.js'))
       // Start piping stream to tasks!
-      .pipe(gulp.dest('./src/'));
+      .pipe(gulp.dest('./src/client/'));
 });
 /* 
 gulp.task('html', function() {
@@ -56,7 +56,7 @@ gulp.task('views', function() {
       }))
       .on('error', interceptErrors)
       .pipe(rename("app.templates.js"))
-      .pipe(gulp.dest('./src/js/config/'));
+      .pipe(gulp.dest('./src/client/js/config/'));
 });
 
 // This task is used for building production ready
@@ -66,9 +66,9 @@ gulp.task('views', function() {
 /*   var html = gulp.src("build/index.html")
                  .pipe(gulp.dest('./dist/')); */
 
-  var js = gulp.src("build/main.js")
+  var js = gulp.src("src/client/build/main.js")
                .pipe(uglify())
-               .pipe(gulp.dest('./dist/'));
+               .pipe(gulp.dest('./src/client/dist/'));
 
   // return merge(html,js);
   return merge(js);
@@ -88,8 +88,8 @@ gulp.task('views', function() {
 
 gulp.task('default', ['browserify'], function() {
 
-  browserSync.init(['./src/**/**.**'], {
-    server: "./src/",
+  browserSync.init(['./src/client/**/**.**'], {
+    server: "./src/client/",
     port: 4000,
     notify: false,
     ui: {
