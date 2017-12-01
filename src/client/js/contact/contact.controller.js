@@ -14,6 +14,7 @@ class ContactCtrl {
       //       this.tags = tags
       //     }
       //   );
+      
   
       // Set current list to either feed or all, depending on auth status.
       this.listConfig = {
